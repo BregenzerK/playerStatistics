@@ -1,2 +1,2 @@
 # playerStatistics
-spring boot application with endpoints for player statistics and a angu
+spring boot application with endpoints for player statistics and angular components displaying the data
