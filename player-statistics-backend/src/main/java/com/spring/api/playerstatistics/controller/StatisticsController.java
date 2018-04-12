@@ -1,7 +1,7 @@
 package com.spring.api.playerstatistics.controller;
 
 import com.spring.api.playerstatistics.model.Player;
-import com.spring.api.playerstatistics.service.PlayerService;
+import com.spring.api.playerstatistics.repository.PlayerRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,15 +13,15 @@ import java.util.Optional;
 @AllArgsConstructor
 public class StatisticsController {
 
-    private PlayerService playerService;
+    private PlayerRepository playerRepository;
 
     @GetMapping(path = "/players")
     public Iterable<Player> getAllPlayers(){
-        return playerService.getAllPlayer();
+        return playerRepository.findAll();
     }
 
     @GetMapping(path = "/player/{id}")
     public Optional<Player> getPlayer(@PathVariable("id") long id){
-        return playerService.getPlayer(id);
+        return playerRepository.findById(id);
     }
 }
