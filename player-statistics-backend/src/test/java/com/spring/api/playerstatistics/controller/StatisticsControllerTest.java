@@ -51,16 +51,22 @@ public class StatisticsControllerTest {
     @Test
     public void getPlayers() throws Exception {
         given(this.playerRepository.findAll()).willReturn(this.players);
-        this.mockMvc.perform(get("/players")
+        this.mockMvc.perform(get("/api/players")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
-@Test
+
+    @Test
     public void getPlayer() throws Exception {
         given(this.playerRepository.findById(123L)).willReturn(java.util.Optional.ofNullable(this.player));
-        this.mockMvc.perform(get("/player/{id}", 123)
+        this.mockMvc.perform(get("/api/player/{id}", 123)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+ @Test
+    public void getPlayerUnkownId() throws Exception {
+        this.mockMvc.perform(get("/api/player/{id}", 124))
+                .andExpect(status().isNoContent());
     }
 
 
