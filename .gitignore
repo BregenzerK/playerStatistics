@@ -1,6 +1,32 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+# compiled output
+/player-statistics-frontend/dist
+/player-statistics-frontend/dist-server
+/player-statistics-frontend/tmp
+/player-statistics-frontend/out-tsc
+
+# dependencies
+/player-statistics-frontend/node_modules
+/player-statistics-frontend/node
+
+# misc
+/player-statistics-frontend/.sass-cache
+/player-statistics-frontend/connect.lock
+/player-statistics-frontend/coverage
+/player-statistics-frontend/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/player-statistics-frontend/typings
+
+# e2e
+/player-statistics-frontend/e2e/*.js
+/player-statistics-frontend/e2e/*.map
+
+/player-statistics-frontend/src/generated
+
 ### STS ###
 .apt_generated
 .classpath

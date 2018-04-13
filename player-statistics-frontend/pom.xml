@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.spring.api</groupId>
+    <artifactId>player-statistics</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>player-statistics-frontend</artifactId>
+
+  <properties>
+    <main.basedir>${project.parent.basedir}</main.basedir>
+    <checkstyle.skip>true</checkstyle.skip>
+  </properties>
+
+  <build>
+
+    <resources>
+      <resource>
+        <directory>target/dist</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+
+      <plugin>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-codegen-maven-plugin</artifactId>
+        <version>${swagger-codegen.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>${main.basedir}/etc/api-docs.json</inputSpec>
+              <language>typescript-angular</language>
+              <output>src/generated</output>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>${frontend.eirslett.version}</version>
+        <configuration>
+          <nodeVersion>${node.version}</nodeVersion>
+          <npmVersion>${npm.version}</npmVersion>
+        </configuration>
+
+        <executions>
+          <!-- installs the tools into /node directory -->
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+          </execution>
+          <!-- installs needed packages into /node_modules -->
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <!-- build the module for dev (default) -->
+          <execution>
+            <id>dev</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <phase>generate-resources</phase>
+            <configuration>
+              <arguments>run build</arguments>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>javascript tests</id>
+            <goals>
+              <goal>karma</goal>
+            </goals>
+            <configuration>
+              <karmaConfPath>karma.conf.js</karmaConfPath>
+            </configuration>
+          </execution>
+        </executions>
+
+      </plugin>
+
+
+      <!-- remove generated content and/or downloaded tools -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-clean</id>
+            <configuration>
+              <followSymLinks>false</followSymLinks>
+              <filesets>
+                <fileset>
+                  <directory>${project.basedir}/src/generated/.swagger-codegen</directory>
+                </fileset>
+                <fileset>
+                  <directory>${project.basedir}/src/generated/api</directory>
+                </fileset>
+                <fileset>
+                  <directory>${project.basedir}/src/generated/model</directory>
+                </fileset>
+                <fileset>
+                  <directory>${project.basedir}/src/generated/</directory>
+                  <includes>
+                    <include>*.ts</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <!--
+
+  build staging frontend artifacts, run mvn with -Pstaging
+
+   -->
+  <profiles>
+    <profile>
+      <id>staging</id>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>${frontend.eirslett.version}</version>
+            <configuration>
+              <nodeVersion>${node.version}</nodeVersion>
+              <npmVersion>${npm.version}</npmVersion>
+            </configuration>
+
+            <executions>
+              <!-- installs the tools into /node directory -->
+              <execution>
+                <id>install node and npm</id>
+                <goals>
+                  <goal>install-node-and-npm</goal>
+                </goals>
+                <phase>generate-resources</phase>
+              </execution>
+              <!-- installs needed packages into /node_modules -->
+              <execution>
+                <id>npm install</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <phase>generate-resources</phase>
+                <configuration>
+                  <arguments>install</arguments>
+                </configuration>
+              </execution>
+              <!-- build the module for staging -->
+              <execution>
+                <id>dev</id>
+                <goals>
+                  <goal>npm</goal>
+                </goals>
+                <phase>generate-resources</phase>
+                <configuration>
+                  <arguments>run build</arguments>
+                </configuration>
+              </execution>
+            </executions>
+
+          </plugin>
+        </plugins>
+      </build>
+
+    </profile>
+
+
+  </profiles>
+
+
+</project>
