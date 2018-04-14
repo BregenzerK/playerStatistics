@@ -8,4 +8,8 @@ export class StatisticsControllerServiceMock extends StatisticsControllerService
   public getAllPlayersUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
     return Observable.of(PLAYER_LIST_MOCK);
   }
+
+  public getPlayerUsingGET(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    return Observable.of(PLAYER_LIST_MOCK[0]);
+  }
 }

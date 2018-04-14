@@ -1,3 +1,35 @@
-<p>
-  player-detail works!
-</p>
+<h2 class="padding-top">{{(player | async).firstName}} {{(player | async).lastName}}</h2>
+<div class="row padding-top">
+  <div class="col-12 col-md-6">
+    <h3>Personal Information</h3>
+    Age: {{(player |async).age}} years <br>
+    Height: {{(player |async).height}} cm <br>
+    Weight: {{(player |async).weight}} kg <br>
+    Active player: <span><i class="fa" ngClass="{{(player |async).active ? 'fa-check':'fa-close'}}"
+                            aria-hidden="true"></i> </span> <br>
+  </div>
+  <div class="col-12 col-md-6">
+    <h3>Team Information</h3>
+    Tournament name: {{(player | async).tournamentName}}<br>
+    Team name: {{(player |async).teamName}}<br>
+    Played positions: {{(player |async).playedPositions}}<br>
+    Position: {{(player |async).positionText}}<br>
+  </div>
+</div>
+<div class="row padding-top">
+  <div class="col-12 col-md-6">
+    <h3>Game Performance</h3>
+    Played: {{(player |async).minsPlayed}} min <br>
+    Goals: {{(player |async).goal}}<br>
+    Assist total: {{(player |async).assistTotal}}<br>
+    Yellow cards: {{(player |async).yellowCard}}<br>
+    Red cards: {{(player |async).redCard}}<br>
+  </div>
+  <div class="col-12 col-md-6">
+    <h3>Averages</h3>
+    Rating: {{(player |async).rating | number:'1.0-2'}} <br>
+    Shots per Game: {{(player |async).shotsPerGame | number:'1.0-2'}} <br>
+    Pass success: {{(player |async).passSuccess| number:'1.0-2'}}% <br>
+  </div>
+</div>
+<button class="btn btn-primary pull-right" (click)="goBack()">Go back</button>

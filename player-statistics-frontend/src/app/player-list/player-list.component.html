@@ -10,10 +10,10 @@
   <tbody class="playerList">
   <tr *ngFor="let player of playerList | async">
     <td>{{player.ranking}}</td>
-    <td>{{player.name}}</td>
+    <td>{{player.firstName}} {{player.lastName}}</td>
     <td>{{player.tournamentName}}</td>
-    <td>
-      <a class="details-link" (click)="navigateTo(player.playerId)">Link
+    <td class="text-center">
+      <a class="details-link" (click)="navigateTo(player.playerId)"><i class="fa fa-long-arrow-right fa-2x"></i>
       </a></td>
   </tr>
   </tbody>

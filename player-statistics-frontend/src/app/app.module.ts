@@ -1,14 +1,14 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {AppComponent} from './app.component';
 import {PlayerListComponent} from './player-list/player-list.component';
 import {PlayerDetailComponent} from './player-detail/player-detail.component';
 import {AppRoutingModule} from './app-routing.module';
-import {PlayerListResolver} from "./resolver/player-resolver.service";
+import {PlayerListResolver} from "./resolver/player-list-resolver.service";
 import {StatisticsControllerService} from "../generated";
 import {HttpClientModule} from "@angular/common/http";
+import {PlayerResolver} from "./resolver/player-resolver.service";
 
 
 @NgModule({
@@ -21,8 +21,11 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
-  providers: [PlayerListResolver,
+  providers: [
+    PlayerListResolver,
+    PlayerResolver,
     StatisticsControllerService],
   bootstrap: [AppComponent]
 })
