@@ -21,16 +21,16 @@ public class StatisticsController {
     private PlayerRepository playerRepository;
 
     @GetMapping(path = "/players")
-    public ResponseEntity getAllPlayers(){
+    public ResponseEntity<Iterable<Player>> getAllPlayers() {
         return new ResponseEntity(playerRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(path = "/player/{id}")
-    public ResponseEntity getPlayer(@PathVariable("id") long id){
+    public ResponseEntity<Player> getPlayer(@PathVariable("id") long id) {
         final Optional<Player> player = playerRepository.findById(id);
         if (player.isPresent()) {
             return new ResponseEntity(player, HttpStatus.OK);
         }
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

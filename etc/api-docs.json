@@ -30,7 +30,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseEntity"
+                            "$ref": "#/definitions/Player"
                         }
                     },
                     "401": {
@@ -54,7 +54,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ResponseEntity"
+                            "$ref": "#/definitions/IterableOfPlayer"
                         }
                     },
                     "401": {
@@ -71,22 +71,144 @@
         }
     },
     "definitions": {
-        "ResponseEntity": {
+        "IterableOfPlayer": {
+            "type": "object",
+            "title": "IterableOfPlayer"
+        },
+        "Player": {
             "type": "object",
             "properties": {
-                "body": {
-                    "type": "object"
+                "active": {
+                    "type": "boolean"
                 },
-                "statusCode": {
-                    "type": "string",
-                    "enum": ["100", "101", "102", "103", "200", "201", "202", "203", "204", "205", "206", "207", "208", "226", "300", "301", "302", "303", "304", "305", "307", "308", "400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417", "418", "419", "420", "421", "422", "423", "424", "426", "428", "429", "431", "451", "500", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510", "511"]
+                "aerialWonPerGame": {
+                    "type": "number",
+                    "format": "float"
                 },
-                "statusCodeValue": {
+                "age": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "apps": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "assistTotal": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "goal": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "height": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "manOfTheMatch": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "minsPlayed": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "opta": {
+                    "type": "boolean"
+                },
+                "passSuccess": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "playedPositions": {
+                    "type": "string"
+                },
+                "playedPositionsShort": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "playerInTheMatch": {
+                    "type": "boolean"
+                },
+                "positionText": {
+                    "type": "string"
+                },
+                "ranking": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "rating": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "redCard": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "regionCode": {
+                    "type": "string"
+                },
+                "seasonId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "seasonName": {
+                    "type": "string"
+                },
+                "shotsPerGame": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "subOn": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "teamId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "teamName": {
+                    "type": "string"
+                },
+                "tournamentId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "tournamentName": {
+                    "type": "string"
+                },
+                "tournamentRegionCode": {
+                    "type": "string"
+                },
+                "tournamentRegionId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "tournamentShortName": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "yellowCard": {
                     "type": "integer",
                     "format": "int32"
                 }
             },
-            "title": "ResponseEntity"
+            "title": "Player"
         }
     }
 }

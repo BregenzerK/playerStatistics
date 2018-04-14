@@ -40,9 +40,6 @@ public class SwaggerConfig {
                 // security scheme
                 .produces(Sets.newHashSet(APPLICATION_JSON_VALUE))
                 .consumes(Sets.newHashSet(APPLICATION_JSON_VALUE))
-                .forCodeGeneration(true)
-                // ignore Spring-Boot's auth classes for code generation
-                .ignoredParameterTypes(Principal.class)
-                .ignoredParameterTypes(Authentication.class);
+                .forCodeGeneration(true);
     }
 }
