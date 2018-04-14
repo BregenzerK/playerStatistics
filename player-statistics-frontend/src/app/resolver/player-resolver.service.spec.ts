@@ -1,15 +1,22 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { PlayerListResolver } from './player-resolver.service';
+import {PlayerListResolver} from './player-resolver.service';
+import {CUSTOM_ELEMENTS_SCHEMA} from "@angular/core";
+import {StatisticsControllerServiceMock} from "../../mock/statisticsController.service.mock";
 
 describe('PlayerListResolver', () => {
+  let playerListResolver: PlayerListResolver;
+
+  const statisticsService = new StatisticsControllerServiceMock(null, '', null);
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [PlayerListResolver]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
+    playerListResolver = new PlayerListResolver(statisticsService);
   });
 
-  it('should be created', inject([PlayerListResolver], (service: PlayerListResolver) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', () => {
+    expect(playerListResolver).toBeTruthy();
+  });
 });

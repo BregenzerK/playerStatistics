@@ -25,7 +25,6 @@ testem.log
 /player-statistics-frontend/e2e/*.js
 /player-statistics-frontend/e2e/*.map
 
-/player-statistics-frontend/src/generated
 
 ### STS ###
 .apt_generated

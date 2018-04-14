@@ -54,7 +54,10 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/IterableOfPlayer"
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Player"
+                            }
                         }
                     },
                     "401": {
@@ -71,10 +74,6 @@
         }
     },
     "definitions": {
-        "IterableOfPlayer": {
-            "type": "object",
-            "title": "IterableOfPlayer"
-        },
         "Player": {
             "type": "object",
             "properties": {

@@ -1,9 +1,7 @@
 package com.spring.api.playerstatistics.config;
 
-import com.fasterxml.classmate.TypeResolver;
 import com.google.common.collect.Sets;
 import lombok.AllArgsConstructor;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +11,6 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import java.security.Principal;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -37,7 +33,6 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build()
                 .pathMapping("/")
-                // security scheme
                 .produces(Sets.newHashSet(APPLICATION_JSON_VALUE))
                 .consumes(Sets.newHashSet(APPLICATION_JSON_VALUE))
                 .forCodeGeneration(true);
