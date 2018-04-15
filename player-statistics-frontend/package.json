@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --env dev --o --proxy-config proxy.conf.json",
+    "start": "ng serve --env dev --proxy-config proxy.conf.json",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -14,6 +14,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
@@ -25,14 +26,19 @@
     "@angular/router": "^5.2.0",
     "angular-bootstrap-md": "^5.2.3",
     "bootstrap": "^4.1.0",
+    "chart.js": "^2.5.0",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^1.9.1",
     "npm": "^5.8.0",
+    "popper.js": "^1.14.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.2",
+    "@angular/cli": "~1.7.1",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
