@@ -1,0 +1,50 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# compiled output
+/player-statistics-angular/dist
+/player-statistics-angular/dist-server
+/player-statistics-angular/tmp
+/player-statistics-angular/out-tsc
+
+# dependencies
+/player-statistics-angular/node_modules
+/player-statistics-angular/node
+
+# misc
+/player-statistics-angular/.sass-cache
+/player-statistics-angular/connect.lock
+/player-statistics-angular/coverage
+/player-statistics-angular/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/player-statistics-angular/typings
+
+# e2e
+/player-statistics-angular/e2e/*.js
+/player-statistics-angular/e2e/*.map
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/

@@ -1,0 +1,51 @@
+<h2 class="h2-responsive">{{(player | async).firstName}} {{(player | async).lastName}}</h2>
+<div class="row padding-top">
+  <div class="col-12 col-md-6">
+    <div class="card card-cascade">
+      <div class="card-body">
+        <h3 class="card-title">Personal Information</h3>
+        <p class="card-text"> Age: {{(player |async).age}} years <br>
+          Height: {{(player |async).height}} cm <br>
+          Weight: {{(player |async).weight}} kg <br>
+          Active player: <span><i class="fa" ngClass="{{(player |async).active ? 'fa-check ':'fa-close'}}"
+                                  aria-hidden="true"></i> </span> <br></p></div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <div class="card card-cascade">
+      <div class="card-body">
+        <h3 class="card-title">Team Information</h3>
+        <p class="card-text">Tournament name: {{(player | async).tournamentName}}<br>
+          Team name: {{(player |async).teamName}}<br>
+          Played positions: <span class="played-positions" *ngFor="let position of (player | async).playedPositions.split('-')">{{position}}</span>
+          <br>
+          Position: {{(player |async).positionText}}<br></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row padding-top">
+  <div class="col-12 col-md-6">
+    <div class="card card-cascade">
+      <div class="card-body">
+        <h3 class="card-title">Game Performance</h3>
+        <p class="card-text"> Played: {{(player |async).minsPlayed}} min <br>
+          Goals: {{(player |async).goal}}<br>
+          Assist total: {{(player |async).assistTotal}}<br>
+          Yellow cards: {{(player |async).yellowCard}}<br>
+          Red cards: {{(player |async).redCard}}<br></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <div class="card card-cascade">
+      <div class="card-body">
+        <h3 class="card-title">Averages</h3>
+        <p class="card-text"> Rating: {{(player |async).rating | number:'1.0-2'}} <br>
+          Shots per Game: {{(player |async).shotsPerGame | number:'1.0-2'}} <br>
+          Pass success: {{(player |async).passSuccess| number:'1.0-2'}}% <br></p>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary pull-right" (click)="goBack()">Go back</button>

@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.row.padding-top {
+  padding-top: 2rem;
+}
+
+.played-positions{
+    padding-right: 0.5rem;
+}

@@ -1,0 +1,213 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Player Statistics Backend"
+    },
+    "host": "localhost:8080",
+    "basePath": "/",
+    "tags": [{
+        "name": "statistics-controller",
+        "description": "Statistics Controller"
+    }],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/api/player/{id}": {
+            "get": {
+                "tags": ["statistics-controller"],
+                "summary": "getPlayer",
+                "operationId": "getPlayerUsingGET",
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "id",
+                    "required": true,
+                    "type": "integer",
+                    "format": "int64"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Player"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/players": {
+            "get": {
+                "tags": ["statistics-controller"],
+                "summary": "getAllPlayers",
+                "operationId": "getAllPlayersUsingGET",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Player"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Player": {
+            "type": "object",
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "aerialWonPerGame": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "age": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "apps": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "assistTotal": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "goal": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "height": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "manOfTheMatch": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "minsPlayed": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "opta": {
+                    "type": "boolean"
+                },
+                "passSuccess": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "playedPositions": {
+                    "type": "string"
+                },
+                "playedPositionsShort": {
+                    "type": "string"
+                },
+                "playerId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "playerInTheMatch": {
+                    "type": "boolean"
+                },
+                "positionText": {
+                    "type": "string"
+                },
+                "ranking": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "rating": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "redCard": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "regionCode": {
+                    "type": "string"
+                },
+                "seasonId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "seasonName": {
+                    "type": "string"
+                },
+                "shotsPerGame": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "subOn": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "teamId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "teamName": {
+                    "type": "string"
+                },
+                "tournamentId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "tournamentName": {
+                    "type": "string"
+                },
+                "tournamentRegionCode": {
+                    "type": "string"
+                },
+                "tournamentRegionId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "tournamentShortName": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "yellowCard": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "Player"
+        }
+    }
+}
