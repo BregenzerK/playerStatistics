@@ -2,28 +2,28 @@
 !.mvn/wrapper/maven-wrapper.jar
 
 # compiled output
-/player-statistics-frontend/dist
-/player-statistics-frontend/dist-server
-/player-statistics-frontend/tmp
-/player-statistics-frontend/out-tsc
+/player-statistics-angular/dist
+/player-statistics-angular/dist-server
+/player-statistics-angular/tmp
+/player-statistics-angular/out-tsc
 
 # dependencies
-/player-statistics-frontend/node_modules
-/player-statistics-frontend/node
+/player-statistics-angular/node_modules
+/player-statistics-angular/node
 
 # misc
-/player-statistics-frontend/.sass-cache
-/player-statistics-frontend/connect.lock
-/player-statistics-frontend/coverage
-/player-statistics-frontend/libpeerconnection.log
+/player-statistics-angular/.sass-cache
+/player-statistics-angular/connect.lock
+/player-statistics-angular/coverage
+/player-statistics-angular/libpeerconnection.log
 npm-debug.log
 yarn-error.log
 testem.log
-/player-statistics-frontend/typings
+/player-statistics-angular/typings
 
 # e2e
-/player-statistics-frontend/e2e/*.js
-/player-statistics-frontend/e2e/*.map
+/player-statistics-angular/e2e/*.js
+/player-statistics-angular/e2e/*.map
 
 
 ### STS ###

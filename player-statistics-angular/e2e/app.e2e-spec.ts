@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('player-statistics-frontend App', () => {
+describe('player-statistics-angular App', () => {
   let page: AppPage;
 
   beforeEach(() => {
