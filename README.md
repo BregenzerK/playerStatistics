@@ -13,6 +13,8 @@ Furthermore here are some more reasons why this frameworks fit this use case:
  - Both frameworks offer client side rendering. The biggest difference in terms of implementation is that the angular app is using a generated service implementation while the react app is calling the endpoints directly.
  
  ## Install and Run instructions
+ without a local maven installation replace mvn with ./mvnw
+ 
     cd player-statistics-backend
     mvn clean package
     mvn spring-boot:run 
